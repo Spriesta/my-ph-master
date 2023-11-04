@@ -4,14 +4,17 @@ import { SessionData } from "../auth/AuthWrapper"
 
 export const Login = () => {
      const navigate = useNavigate();
-     const { login } = SessionData(); //context başlatıyor session gibi düşün
+     const { login } = SessionData(); 
      const [ formData, setFormData ] = useReducer((formData, newItem) => { return ( {...formData, ...newItem} )}, {userName: "", password: ""})
      const [ errorMessage, setErrorMessage ] = useState(null)
      
      const doLogin = async () => {
           try {        
-               await login(formData.userName, formData.password)
-               navigate("/private")
+               var status = await login(formData.userName, formData.password)
+               if(status)
+                    navigate("/private");
+               else 
+                    navigate("/login");
           } 
           catch (error) {
                setErrorMessage(error)   

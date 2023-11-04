@@ -6,4 +6,5 @@ export const nav = [
      { path: "/", name: "login", element: <Login />, isPrivate: false  },
      { path: "/login", name: "login", element: <Login />, isPrivate: false  },
      { path: "/private", name: "private", element: <Private />, isPrivate: true  },
+     { path: "/home", name: "home", element: <Home />, isPrivate: true  },
 ]

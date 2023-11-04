@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <AuthWrapper />
+        <AuthWrapper/>
       </BrowserRouter>      
     </div>
   );
