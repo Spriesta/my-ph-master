@@ -10,7 +10,7 @@ export const AuthWrapper = () => {
      const navigate = useNavigate();
   
      const login = async (userName, password) => {
-          
+
           return new Promise((resolve, reject) => {
                let requestData = {
                     "userInput": userName,
@@ -26,7 +26,9 @@ export const AuthWrapper = () => {
                     .then((response) => {
                          if(response.data.success)
                          {
-                              document.cookie = "token=" + response.data.token.accessToken;
+                              let expirationDate = new Date();
+                              expirationDate.setTime(expirationDate.getTime() + (10 * 60 * 1000)); // 10 dakika
+                              document.cookie = `token=${response.data.token.accessToken}; expires=${expirationDate.toUTCString()}`;
                               resolve(true);
                          }
                     })
