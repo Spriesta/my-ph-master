@@ -27,7 +27,7 @@ export const AuthWrapper = () => {
                          if(response.data.success)
                          {
                               let expirationDate = new Date();
-                              expirationDate.setTime(expirationDate.getTime() + (10 * 60 * 1000)); // 10 dakika
+                              expirationDate.setTime(expirationDate.getTime() + (15 * 60 * 1000)); // 15 dakika
                               document.cookie = `token=${response.data.token.accessToken}; expires=${expirationDate.toUTCString()}`;
                               resolve(true);
                          }
