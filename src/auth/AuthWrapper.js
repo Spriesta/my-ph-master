@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext } from "react"
 import { RenderRoutes } from "./RenderNavigation";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -46,7 +46,7 @@ export const AuthWrapper = () => {
           let tokenCookie = document.cookie.split('; ').find(row => row.startsWith('token='));
 
           if (tokenCookie) {          
-               tokenCookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC';
+               document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
           } 
           else {
                const cookies = document.cookie.split('; ');
